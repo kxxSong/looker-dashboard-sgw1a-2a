@@ -1,0 +1,35 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: #000;
+}
+
+.frame-wrap {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+iframe {
+  background: #111;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+  background: #000; /* fallback background */
+}
+
+iframe.active {
+  opacity: 1;
+  z-index: 1;
+  pointer-events: auto;
+}
+
