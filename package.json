@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "video.js": "^8.23.4"
-  },
-  "dependencies": {
-    "videojs-youtube": "^3.0.1"
-  }
-}
