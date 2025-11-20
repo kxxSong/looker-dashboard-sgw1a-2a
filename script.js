@@ -3,7 +3,7 @@
   const frameA = document.getElementById("frameA");
   const frameB = document.getElementById("frameB");
   const DISPLAY_TIME_MS = 30_000; // 30s per page
-  const REFRESH_INTERVAL_MS = 6 * 60 * 60 * 1000; // 6h
+  const REFRESH_INTERVAL_MS = 5 * 60 * 60 * 1000; // 6h
 
   let pages = [];
   let current = 0;
