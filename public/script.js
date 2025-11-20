@@ -5,7 +5,7 @@
   const frameB = document.getElementById("frameB");
 
   const DISPLAY_TIME_MS = 3_000;
-  const VIDEO_DURATION_MS = 10_000;
+  const VIDEO_DURATION_MS = 3_000;
   const REFRESH_INTERVAL_MS = 6 * 60 * 60 * 1000;
 
   let pages = [];
