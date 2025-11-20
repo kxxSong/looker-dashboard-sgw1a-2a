@@ -6,6 +6,12 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/**",
+        "function": "https://gdc-ebp1a-backend-uat-tgmxkbnerq-as.a.run.app/**"
+      }
     ]
   }
 }
