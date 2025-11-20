@@ -4,8 +4,8 @@
   const frameA = document.getElementById("frameA");
   const frameB = document.getElementById("frameB");
 
-  const DISPLAY_TIME_MS = 30_000;
-  const VIDEO_DURATION_MS = 2 * 60 * 1000;
+  const DISPLAY_TIME_MS = 3_000;
+  const VIDEO_DURATION_MS = 10_000;
   const REFRESH_INTERVAL_MS = 6 * 60 * 60 * 1000;
 
   let pages = [];
