@@ -31,7 +31,7 @@
     data-setup="{}"
   >
 
-    <source src="https://storage.googleapis.com/gdc-ebp1a-images/FSA_DCH%20Access%20Personnel%20List%20-%20Google%20Sheets%20%E2%80%94%20Firefox%20Developer%20Edition%202025-08-14%2008-22-18.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=835674461717-compute%40developer.gserviceaccount.com%2F20251120%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251120T031820Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=41014ee07c40e49be1fbdee606b145ad9a35a673d0d6a4837430fc4362b00c53e5220f4d90f73e343082830893d8051532765034e5ec4fb94a83ec5c67ec1f34fa10ca4f56d0bff7fa194556262123712119acb96c97bfd10b18c949b52663f4df3a42227cf8859b86c6cf4aca9dd4c3f0f62a8663f88ecfdfe86fc08ba1391e68422873c38f470136d7ab8e5f24b31ffa4dddcfba1d3961e0d728e0dbd1de9bc35210eb742bf6cffd460abb383e304b6f088f845425d26278ca684c9fd18dd55f75e5ee4f57b813d807b9a3949b50b6d2894854cfea57564e649122c7e7a310b4f73df6c9dc93831c7c0e28fb8282db4a8a7c8f532e739d66c7fa00454e0f79" 
+    <source src= "https://storage.googleapis.com/gdc-ebp1a-documents/SGW1A2A%20-%20251121%20Progress%20Video.MP4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=835674461717-compute%40developer.gserviceaccount.com%2F20251121%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251121T090319Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=0751e438c320461394543cff87ca5127717f529799eb2931f18e13d6f6a68627c14261dcb5cc2eca37d4a322ef0006147557f40353c15d35a0d834af1b673bef94b85452931a9a902041b9d1e936d169ce09d436db42d32552ab0118213709e49fe4be7c0fcc61fc2b7b05234ea88b0709ad23febc8492c2d1d3ac7a72f0cded6461d5c5a26d9151121f5da6bac13ba04509d21f175416986e49ce99a2b4d77a562a46e3c4abee006d9e50262144e3df1a38ce1c74d276f1f19bfbd3e990857afcb86bb3b5fda2f212ecc2e2f306311525340761bd00dd412dcc26b0c38fea774bae229238d941f8586a676d45fb936e91071be1926db2333d977a87416a6b83"
     type="video/mp4" />
   </video>
 
@@ -40,7 +40,8 @@
   <script>
     const player = videojs('my-video');
     player.ready(() => {
-      player.playbackRate(2); // 2x speed
+      // 2x speed
+      player.playbackRate(2); 
       player.play().catch(()=>{});
     });
   </script>

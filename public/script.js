@@ -3,8 +3,8 @@
   const frameA = document.getElementById("frameA");
   const frameB = document.getElementById("frameB");
 
-  const DISPLAY_TIME_MS = 3_000;
-  const VIDEO_DURATION_MS = 10_000;
+  const DISPLAY_TIME_MS = 30_000;
+  const VIDEO_DURATION_MS = 2*60_000;
   const REFRESH_INTERVAL_MS = 6 * 60 * 60 * 1000;
 
   let pages = [];
@@ -42,41 +42,45 @@
     });
   }
 
-  async function showNextPage() {
-    if (nextFrameLoading) return;
-    nextFrameLoading = true;
+async function showNextPage() {
+  if (nextFrameLoading) return;
+  nextFrameLoading = true;
 
-    const currentFrame = current % 2 === 0 ? frameA : frameB;
-    const nextFrame = current % 2 === 0 ? frameB : frameA;
-    const nextIndex = (current + 1) % pages.length;
-    const nextPage = pages[nextIndex];
+  const currentFrame = current % 2 === 0 ? frameA : frameB;
+  const nextFrame = current % 2 === 0 ? frameB : frameA;
+  const nextIndex = (current + 1) % pages.length;
+  const nextPage = pages[nextIndex];
 
-    // If NOT video → load Looker Studio page
-    if (nextPage !== "video") {
-      const ok = await loadFrame(nextFrame, `${base}${nextPage}`);
-      if (ok) {
-        await new Promise((r) => setTimeout(r, 500));
-        currentFrame.classList.remove("active");
-        nextFrame.classList.add("active");
-        current = nextIndex;
-      }
-      nextFrameLoading = false;
-      setTimeout(showNextPage, DISPLAY_TIME_MS);
-      return;
+  // If NOT video → load Looker Studio page
+  if (nextPage !== "video") {
+    const ok = await loadFrame(nextFrame, `${base}${nextPage}`);
+    if (ok) {
+      await new Promise((r) => setTimeout(r, 500));
+      currentFrame.classList.remove("active");
+      nextFrame.classList.add("active");
+      current = nextIndex;
     }
-
-    // If page = "video" → load local MP4 player
-    const ok = await loadFrame(nextFrame, "video.html");
-    await new Promise((r) => setTimeout(r, 500));
-
-    currentFrame.classList.remove("active");
-    nextFrame.classList.add("active");
-    current = nextIndex;
     nextFrameLoading = false;
+    setTimeout(showNextPage, DISPLAY_TIME_MS);
+    return;
+  }
 
-    // This controls how long video stays before rotating
-    setTimeout(showNextPage, VIDEO_DURATION_MS);
-  } 
+  // If page = "video" → load local MP4 player
+  // Add cache-busting query string to force reload
+  let videoUrl = "video.html";
+  videoUrl += "?t=" + Date.now();
+
+  const ok = await loadFrame(nextFrame, videoUrl);
+  await new Promise((r) => setTimeout(r, 500));
+
+  currentFrame.classList.remove("active");
+  nextFrame.classList.add("active");
+  current = nextIndex;
+  nextFrameLoading = false;
+
+  // This controls how long video stays before rotating
+  setTimeout(showNextPage, VIDEO_DURATION_MS);
+}
 
   // Start automatically - no button needed
   await loadFrame(frameA, `${base}${pages[0]}`);
