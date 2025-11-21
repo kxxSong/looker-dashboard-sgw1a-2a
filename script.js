@@ -1,6 +1,5 @@
 (async function () {
-  const base =
-    "https://lookerstudio.google.com/embed/reporting/5c9aa62c-a673-4317-916f-589222f5cd09/page/";
+  const base = "https://lookerstudio.google.com/embed/reporting/5c9aa62c-a673-4317-916f-589222f5cd09/page/";
   const frameA = document.getElementById("frameA");
   const frameB = document.getElementById("frameB");
 
@@ -52,7 +51,7 @@
     const nextIndex = (current + 1) % pages.length;
     const nextPage = pages[nextIndex];
 
-    // 🔹 If NOT video → load Looker Studio page
+    // If NOT video → load Looker Studio page
     if (nextPage !== "video") {
       const ok = await loadFrame(nextFrame, `${base}${nextPage}`);
       if (ok) {
@@ -66,7 +65,7 @@
       return;
     }
 
-    // 🔹 If page = "video" → load local MP4 player
+    // If page = "video" → load local MP4 player
     const ok = await loadFrame(nextFrame, "video.html");
     await new Promise((r) => setTimeout(r, 500));
 
@@ -77,7 +76,7 @@
 
     // This controls how long video stays before rotating
     setTimeout(showNextPage, VIDEO_DURATION_MS);
-  }
+  } 
 
   // Start automatically - no button needed
   await loadFrame(frameA, `${base}${pages[0]}`);
