@@ -1,0 +1,17 @@
+{
+  "name": "sgw1a2a",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "firebase deploy --only hosting:gdc-dashboard"
+  },
+  "dependencies": {
+    "videojs-youtube": "^3.0.1"
+  },
+  "devDependencies": {
+    "video.js": "^8.23.4"
+  }
+}
